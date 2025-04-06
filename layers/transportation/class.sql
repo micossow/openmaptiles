@@ -42,21 +42,6 @@ $$ LANGUAGE SQL IMMUTABLE
                 STRICT
                 PARALLEL SAFE;
 
--- Limit surface to only the most important values to ensure
--- we always know the values of surface
-CREATE OR REPLACE FUNCTION surface_value(surface text) RETURNS text AS
-$$
-SELECT CASE
-           WHEN surface IN ('paved', 'asphalt', 'cobblestone', 'concrete', 'concrete:lanes', 'concrete:plates', 'metal',
-                            'paving_stones', 'sett', 'unhewn_cobblestone', 'wood', 'grade1') THEN 'paved'
-           WHEN surface IN ('unpaved', 'compacted', 'dirt', 'earth', 'fine_gravel', 'grass', 'grass_paver', 'gravel',
-                            'gravel_turf', 'ground', 'ice', 'mud', 'pebblestone', 'salt', 'sand', 'snow', 'woodchips')
-               THEN 'unpaved'
-           END;
-$$ LANGUAGE SQL IMMUTABLE
-                STRICT
-                PARALLEL SAFE;
-
 -- Determine which transportation features are shown at zoom 12
 CREATE OR REPLACE FUNCTION transportation_filter_z12(highway text, construction text) RETURNS boolean AS
 $$

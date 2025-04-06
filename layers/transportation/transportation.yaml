@@ -204,10 +204,19 @@ layer:
       values:
       - paved
       - unpaved
+    smoothness:
+        description: |
+            Original value of the [`smoothness`](http://wiki.openstreetmap.org/wiki/Key:smoothness) tag (highways only).
+        values:
+        - excellent
+        - good
+        - intermediate
+        - bad
+        - horrible
   datasource:
     geometry_field: geometry
     srid: 900913
-    query: (SELECT geometry, class, subclass, network, oneway, ramp, brunnel, service, access, toll, expressway, layer, level, indoor, bicycle, foot, horse, mtb_scale, surface FROM layer_transportation(!bbox!, z(!scale_denominator!))) AS t
+    query: (SELECT geometry, class, subclass, network, oneway, ramp, brunnel, service, access, toll, expressway, layer, level, indoor, bicycle, foot, horse, mtb_scale, surface, smoothness FROM layer_transportation(!bbox!, z(!scale_denominator!))) AS t
 schema:
   - ./network_type.sql
   - ./class.sql
