@@ -17,7 +17,7 @@
     "openmaptiles": {"type": "vector", "url": "http://localhost:8090"}
   },
   "sprite": "https://openmaptiles.github.io/maptiler-toner-gl-style/sprite",
-  "glyphs": "https://api.maptiler.com/fonts/{fontstack}/{range}.pbf?key={key}",
+  "glyphs": "{fontstack}/{range}.pbf",
   "layers": [
     {
       "id": "background",
@@ -679,7 +679,7 @@
         "text-anchor": "center",
         "text-field": "{name:latin} {name:nonlatin}",
         "text-font": {
-          "stops": [[12, ["Nunito Regular"]], [16, ["Nunito Semi Bold"]]]
+          "stops": [[12, ["Noto Sans Regular"]], [16, ["Noto Sans Bold"]]]
         },
         "text-max-width": 10,
         "text-size": {"stops": [[12, 12], [16, 18]]},
@@ -703,7 +703,7 @@
       "layout": {
         "icon-anchor": "center",
         "text-field": "{name:latin}",
-        "text-font": {"stops": [[4, ["Nunito Regular"]], [7, ["Nunito Bold"]]]},
+        "text-font": {"stops": [[4, ["Noto Sans Regular"]], [7, ["Noto Sans Bold"]]]},
         "text-max-width": 10,
         "text-size": {"stops": [[4, 14], [7, 15], [8, 19], [16, 22]]},
         "visibility": "visible"
@@ -728,7 +728,7 @@
         "icon-anchor": "center",
         "text-field": "{name:latin}",
         "text-font": {
-          "stops": [[8, ["Nunito Regular"]], [14, ["Nunito Bold"]]]
+          "stops": [[8, ["Noto Sans Regular"]], [14, ["Noto Sans Bold"]]]
         },
         "text-max-width": 10,
         "text-size": {"stops": [[8, 15], [16, 18]]},
@@ -752,7 +752,7 @@
       "filter": ["all", ["==", "class", "state"]],
       "layout": {
         "text-field": "{name:latin} {name:nonlatin}",
-        "text-font": ["Nunito Semi Bold"],
+        "text-font": ["Noto Sans Bold"],
         "text-max-width": 10,
         "text-size": 13,
         "text-transform": "uppercase",
@@ -770,7 +770,7 @@
       "layout": {
         "text-allow-overlap": false,
         "text-field": "{name:latin}",
-        "text-font": {"stops": [[3, ["Nunito Regular"]], [4, ["Nunito Bold"]]]},
+        "text-font": {"stops": [[3, ["Noto Sans Regular"]], [4, ["Noto Sans Bold"]]]},
         "text-ignore-placement": false,
         "text-max-width": 10,
         "text-padding": 2,
@@ -795,7 +795,7 @@
       "filter": ["==", "class", "continent"],
       "layout": {
         "text-field": "{name:latin}",
-        "text-font": ["Nunito Extra Bold"],
+        "text-font": ["Noto Sans Bold"],
         "text-line-height": 1.1,
         "text-max-width": 10,
         "text-size": {"stops": [[3, 18], [4, 24]]},

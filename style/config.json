@@ -1,22 +1,16 @@
 {
   "options": {
     "paths": {
-      "fonts": "/data/fonts",
-      "sprites": "/build/style",
-      "styles": "/build/style"
-    }
+      "fonts": "/data/fonts"
+    },
+   "serveAllFonts": true
   },
   "styles": {
-    "OSM OpenMapTiles": {
-      "style": "style.json",
+    "Toner": {
+      "style": "/style/style.json",
       "tilejson": {
         "type": "overlay"
       }
-    }
-  },
-  "data": {
-    "openmaptiles": {
-      "mbtiles": "/data/tiles.mbtiles"
     }
   }
 }
