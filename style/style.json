@@ -17,7 +17,7 @@
     "openmaptiles": {"type": "vector", "url": "http://localhost:8090"}
   },
   "sprite": "https://openmaptiles.github.io/maptiler-toner-gl-style/sprite",
-  "glyphs": "{fontstack}/{range}.pbf",
+  "glyphs": "http://localhost:8080/fonts/{fontstack}/{range}.pbf",
   "layers": [
     {
       "id": "background",
@@ -376,6 +376,36 @@
       }
     },
     {
+      "id": "road_secondary_paving_stones",
+      "type": "line",
+      "metadata": {},
+      "source": "openmaptiles",
+      "source-layer": "transportation",
+      "minzoom": 10,
+      "filter": [
+        "all",
+        ["==", "$type", "LineString"],
+        ["!in", "class", "pier", "rail", "path", "primary"],
+        ["in", "class", "secondary", "tertiary", "minor", "service"],
+        ["in", "surface", "paving_stones"]
+      ],
+      "layout": {
+        "line-cap": "round",
+        "line-join": "round",
+        "visibility": "visible"
+      },
+      "paint": {
+        "line-color": {
+          "stops": [
+            [10, "rgba(42, 255, 0, 0.18)"],
+            [12, "rgba(121, 255, 0, 0.3)"],
+            [15, "rgba(42, 255, 0, 0.45)"]
+          ]
+        },
+        "line-width": {"stops": [[13, 2], [15, 3], [17, 8]]}
+      }
+    },
+    {
       "id": "road_primary",
       "type": "line",
       "metadata": {},
@@ -703,7 +733,9 @@
       "layout": {
         "icon-anchor": "center",
         "text-field": "{name:latin}",
-        "text-font": {"stops": [[4, ["Noto Sans Regular"]], [7, ["Noto Sans Bold"]]]},
+        "text-font": {
+          "stops": [[4, ["Noto Sans Regular"]], [7, ["Noto Sans Bold"]]]
+        },
         "text-max-width": 10,
         "text-size": {"stops": [[4, 14], [7, 15], [8, 19], [16, 22]]},
         "visibility": "visible"
@@ -770,7 +802,9 @@
       "layout": {
         "text-allow-overlap": false,
         "text-field": "{name:latin}",
-        "text-font": {"stops": [[3, ["Noto Sans Regular"]], [4, ["Noto Sans Bold"]]]},
+        "text-font": {
+          "stops": [[3, ["Noto Sans Regular"]], [4, ["Noto Sans Bold"]]]
+        },
         "text-ignore-placement": false,
         "text-max-width": 10,
         "text-padding": 2,
